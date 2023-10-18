@@ -1,0 +1,5 @@
+ALTER TABLE address
+ADD COLUMN country VARCHAR(255);
+
+ALTER TABLE users
+ADD COLUMN stripe_id VARCHAR(255)

@@ -1,4 +1,4 @@
-package com.db.migrations.models;
+package com.db.migrations.user.dtos;
 
 import lombok.*;
 

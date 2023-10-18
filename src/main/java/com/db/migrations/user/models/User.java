@@ -1,10 +1,9 @@
-package com.db.migrations.models;
+package com.db.migrations.user.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import static jakarta.persistence.CascadeType.ALL;
 
 @Setter
 @Getter
@@ -18,14 +17,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String stripeId;
+
     private String firstName;
 
     private String lastName;
 
+    @OneToOne(cascade = ALL)
+    private Address address;
+
     @Column(columnDefinition = "TEXT")
     private String story;
 
-    @JsonIgnore
-    @Column(columnDefinition = "tsvector")
-    private Object searchWithWeight;
 }
